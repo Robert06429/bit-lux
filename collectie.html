@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gifts for Him - Collection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body style="background: black;">
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-content">
+            <!-- Left Side -->
+            <div class="nav-left">
+                <!-- Menu Button -->
+                <button class="nav-icon flex items-center gap-2 hover:opacity-70 transition" id="menuBtn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                    <span class="hidden md:inline text-sm font-medium">Menu</span>
+                </button>
+
+                <!-- Mobile Search Icon -->
+                <button class="mobile-search-icon nav-icon hover:opacity-70 transition" id="mobileSearchBtn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </button>
+
+                <!-- Search - Desktop only -->
+                <button class="desktop-search nav-icon flex items-center gap-2 hover:opacity-70 transition" id="searchBtn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                    <span class="text-sm font-medium">Search</span>
+                </button>
+            </div>
+
+            <!-- Logo (Centered) -->
+            <div class="logo-container">
+                <img src="./images/wittelogo.png" 
+                     alt="Bit Lux" 
+                     class="logo-image">
+            </div>
+
+            <!-- Right Side -->
+            <div class="nav-right">
+                <button class="nav-icon hover:opacity-70 transition hidden md:block" id="contactBtn">
+                    <span class="text-sm font-medium">Contact us</span>
+                </button>
+
+                <button class="nav-icon hover:opacity-70 transition" aria-label="Wishlist" id="wishlistBtn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </button>
+
+                <button class="nav-icon hover:opacity-70 transition" aria-label="Account" id="accountBtn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </button>
+
+                <button class="nav-icon hover:opacity-70 transition relative" aria-label="Shopping Bag" id="cartBtn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 0 1-8 0"/>
+                    </svg>
+                    <span class="bag-badge" id="bagBadge">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Secondary Navigation Links (inside navbar) -->
+        <div class="nav-links-secondary" id="navLinksSecondary">
+            <a href="#" class="nav-link-item">Holiday Gifts for Her</a>
+            <a href="#" class="nav-link-item">Holiday Gifts for Him</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Image + Overlay Text -->
+    <section style="position: relative; width: 100%; height: 60vh; overflow: hidden; background: white;">
+        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1600&h=900&fit=crop" alt="Gifts for Him" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3);"></div>
+        <div style="position: absolute; bottom: 4rem; left: 4rem; color: white; z-index: 10;">
+            <h1 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 300; margin-bottom: 1rem;">Gifts for Him</h1>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 300; line-height: 1.6;">Find the perfect Gucci gifts for him, from the House's curation of designer gifts for men.</p>
+        </div>
+    </section>
+
+    <!-- Gift Categories + Filters -->
+    <section style="display: flex; justify-content: space-between; align-items: center; padding: 2rem 3rem; background: white;">
+        <div style="display: flex; gap: 1rem;">
+            <a href="#" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1.5rem; background: white; border: 1px solid #e5e5e5; text-decoration: none; color: #1a1a1a; transition: all 0.3s ease;">
+                <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=80&h=80&fit=crop" alt="Petite Gifts" style="width: 40px; height: 40px; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500; white-space: nowrap;">Petite Gifts</span>
+            </a>
+            <a href="#" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1.5rem; background: white; border: 1px solid #e5e5e5; text-decoration: none; color: #1a1a1a; transition: all 0.3s ease;">
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=80&h=80&fit=crop" alt="Special Gifts" style="width: 40px; height: 40px; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500; white-space: nowrap;">Special Gifts</span>
+            </a>
+            <a href="#" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1.5rem; background: white; border: 1px solid #e5e5e5; text-decoration: none; color: #1a1a1a; transition: all 0.3s ease;">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=80&h=80&fit=crop" alt="Luxury Gifts" style="width: 40px; height: 40px; object-fit: cover; flex-shrink: 0;">
+                <span style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500; white-space: nowrap;">Luxury Gifts</span>
+            </a>
+        </div>
+
+        <button style="display: flex; align-items: center; gap: 0.5rem; background: none; border: none; font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer;" id="filterBtn">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+            Filters
+        </button>
+    </section>
+
+    <!-- Products Grid -->
+    <section id="productsGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); padding: 0; gap: 2px; background: white;">
+        <!-- ROW 1: 4 Products -->
+        <!-- Product 1 -->
+        <div style="overflow: hidden; background: white;">
+            <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&h=750&fit=crop" alt="Scarf" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 1.5rem; background: white;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">GG wool jacquard scarf</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$500</p>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div style="overflow: hidden; background: white;">
+            <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?w=600&h=750&fit=crop" alt="Gift Set" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 1.5rem; background: white;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Gift Set</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$84</p>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div style="overflow: hidden; background: white;">
+            <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                <img src="https://images.unsplash.com/photo-1624222247344-550fb60583d2?w=600&h=750&fit=crop" alt="Wallet" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 1.5rem; background: white;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Leather Wallet</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$320</p>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div style="overflow: hidden; background: white;">
+            <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                <img src="https://images.unsplash.com/photo-1611923134239-1187300c4d5a?w=600&h=750&fit=crop" alt="Sunglasses" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 1.5rem; background: white;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Designer Sunglasses</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$450</p>
+            </div>
+        </div>
+
+        <!-- ROW 2: 2 Products + Banner -->
+        <!-- Product 5 -->
+        <div style="overflow: hidden; background: white;">
+            <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=750&fit=crop" alt="Belt" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 1.5rem; background: white;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Belt with Interlocking G</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$450</p>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div style="overflow: hidden; background: white;">
+            <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&h=750&fit=crop" alt="Card Case" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 1.5rem; background: white;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">GG card case</h3>
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$280</p>
+            </div>
+        </div>
+
+        <!-- Banner RIGHT -->
+        <div style="grid-column: span 2; background: white; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1200&h=1500&fit=crop" alt="Small Leather Goods Gifts" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); pointer-events: none;"></div>
+                <div style="position: absolute; bottom: 1rem; left: 1rem; color: white; z-index: 10;">
+                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 400; margin-bottom: 0.25rem;">Small Leather Goods Gifts</h2>
+                    <a href="#" style="color: white; text-decoration: underline; font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load All Section -->
+    <section style="background: white; padding: 4rem 3rem; text-align: center;">
+        <button id="loadAllBtn" style="background: black; color: white; border: none; padding: 0.75rem 1.5rem; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; cursor: pointer; margin-bottom: 4rem;">LOAD ALL</button>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 1.5rem;">NEW ARRIVALS WOMEN</h2>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 1rem; color: #666; line-height: 1.6; margin-bottom: 2rem;">Explore new in women's ready-to-wear collection and the latest arrivals in shoes.</p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-family: 'Montserrat', sans-serif; font-size: 0.875rem;">
+                <a href="#" style="color: #1a1a1a; text-decoration: underline;">What's New</a>
+                <span>/</span>
+                <a href="#" style="color: #1a1a1a; text-decoration: underline;">New In</a>
+                <span>/</span>
+                <span style="color: #666;">New Arrivals Women</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-white border-t border-gray-200">
+        <!-- Footer Cards Section -->
+        <div class="max-w-full py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mb-16">
+                <!-- Card 1 -->
+                <div class="footer-card">
+                    <div>
+                        <h3 class="font-medium text-base mb-1 transition-colors duration-300">In-Store Appointment</h3>
+                        <p class="text-sm text-gray-600">Discover the possibilities of a tailor-made visit</p>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="footer-card">
+                    <div>
+                        <h3 class="font-medium text-base mb-1 transition-colors duration-300">Bit Lux Signature Packaging</h3>
+                        <p class="text-sm text-gray-600">An example and emblem of the House's savoir-faire</p>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="footer-card">
+                    <div>
+                        <h3 class="font-medium text-base mb-1 transition-colors duration-300">Free Delivery & Returns</h3>
+                        <p class="text-sm text-gray-600">Complimentary standard shipping and returns & exchanges within 30 days</p>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Newsletter and Links Grid -->
+            <div class="px-4 md:px-8">
+                <div class="footer-grid grid mb-16" style="grid-template-columns: 2fr 1fr 1fr; gap: 8rem;">
+                    <!-- Newsletter Section -->
+                    <div>
+                        <h3 class="footer-section-title">Inspire me with all the latest Bit Lux news</h3>
+                        <div class="footer-newsletter-input flex gap-4 max-w-2xl">
+                            <input 
+                                type="email" 
+                                placeholder="* E-mail" 
+                                class="flex-1 px-4 py-3 border border-gray-300 focus:outline-none focus:border-gray-500 text-sm"
+                            >
+                            <button class="bg-black text-white px-8 py-3 hover:bg-gray-800 transition text-sm font-medium border border-black" style="border-radius: 4px;">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Client Services -->
+                    <div>
+                        <h3 class="footer-section-title">Client Services</h3>
+                        <a href="#" class="footer-link" id="footerContactBtn">Contact</a>
+                        <a href="#" class="footer-link">Delivery & Returns</a>
+                        <a href="#" class="footer-link">FAQ</a>
+                    </div>
+
+                    <!-- The House Of Bit Lux -->
+                    <div>
+                        <h3 class="footer-section-title">The House Of Bit Lux</h3>
+                        <a href="#" class="footer-link">Bit Lux Saddle</a>
+                        <a href="#" class="footer-link">Rose Céleste</a>
+                        <a href="#" class="footer-link">Ethics & Compliance</a>
+                        <a href="#" class="footer-link">California Supply Chains Act</a>
+                        <a href="#" class="footer-link">Bit Lux Sustainability</a>
+                        <a href="#" class="footer-link">Careers</a>
+                    </div>
+                </div>
+
+                <!-- Bottom Section -->
+                <div class="pt-8 border-t border-gray-200 pb-16 md:pb-0">
+                    <div class="footer-bottom-content px-4 md:px-8 flex flex-col md:flex-row justify-between items-center">
+                        <!-- Copyright -->
+                        <div class="footer-copyright text-sm text-gray-600 mb-0 md:mb-0">
+                            © 2025 Bit Lux. All rights reserved.
+                        </div>
+
+                        <!-- Other Countries / Regions -->
+                        <button class="footer-admin-link flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition cursor-pointer" id="countryBtn">
+                            <span>Other Countries / Regions: International (English)</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Logo (Centered) -->
+        <div class="footer-logo absolute left-1/2 transform -translate-x-1/2" style="bottom: 2rem;">
+            <img src="./images/wittelogo.png" 
+                 alt="BIT LUX" 
+                 class="footer-logo-img"
+                 style="filter: brightness(0);">
+        </div>
+
+        <!-- Copyright at absolute bottom on mobile -->
+        <div class="footer-copyright-mobile absolute left-0 right-0 text-center text-sm text-gray-600 pb-4" style="bottom: 0;">
+            © 2025 Bit Lux. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="./javascript/script.js"></script>
+    <script>
+        // Load All functionality
+        const loadAllBtn = document.getElementById('loadAllBtn');
+        const productsGrid = document.getElementById('productsGrid');
+        
+        if (loadAllBtn) {
+            loadAllBtn.addEventListener('click', function() {
+                // Add 4 more rows of products with same pattern
+                const newProductsHTML = `
+                    <!-- ROW 3: 4 Products -->
+                    <div style="overflow: hidden; background: white;">
+                        <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                            <img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34?w=600&h=750&fit=crop" alt="Bracelet" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: 1.5rem; background: white;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Chain Bracelet</h3>
+                            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$600</p>
+                        </div>
+                    </div>
+                    <div style="overflow: hidden; background: white;">
+                        <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                            <img src="https://images.unsplash.com/photo-1605733513597-2d4d8d6639be?w=600&h=750&fit=crop" alt="Gloves" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: 1.5rem; background: white;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Leather Gloves</h3>
+                            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$840</p>
+                        </div>
+                    </div>
+                    <div style="overflow: hidden; background: white;">
+                        <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                            <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=600&h=750&fit=crop" alt="Backpack" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: 1.5rem; background: white;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Leather Backpack</h3>
+                            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$1,200</p>
+                        </div>
+                    </div>
+                    <div style="overflow: hidden; background: white;">
+                        <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                            <img src="https://images.unsplash.com/photo-1627225924765-552d49cf47ad?w=600&h=750&fit=crop" alt="Watch" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: 1.5rem; background: white;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Designer Watch</h3>
+                            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$2,500</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ROW 4: Banner LEFT + 2 Products -->
+                    <div style="grid-column: span 2; background: white; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                            <img src="https://images.unsplash.com/photo-1608528375134-78f9731b83b4?w=1200&h=1500&fit=crop" alt="Luxury Collection" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.2); pointer-events: none;"></div>
+                            <div style="position: absolute; bottom: 1rem; left: 1rem; color: white; z-index: 10;">
+                                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 400; margin-bottom: 0.25rem;">Luxury Accessories</h2>
+                                <a href="#" style="color: white; text-decoration: underline; font-family: 'Montserrat', sans-serif; font-size: 0.75rem;">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="overflow: hidden; background: white;">
+                        <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=750&fit=crop" alt="Sneakers" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: 1.5rem; background: white;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Designer Sneakers</h3>
+                            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$750</p>
+                        </div>
+                    </div>
+                    <div style="overflow: hidden; background: white;">
+                        <div style="position: relative; width: 100%; padding-bottom: 130%; overflow: hidden; background: #f5f5f5;">
+                            <img src="https://images.unsplash.com/photo-1618677831798-3f0c9c9aa9e4?w=600&h=750&fit=crop" alt="Jacket" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="padding: 1.5rem; background: white;">
+                            <h3 style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 400; margin-bottom: 0.5rem;">Leather Jacket</h3>
+                            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 500;">$1,800</p>
+                        </div>
+                    </div>
+                `;
+                
+                productsGrid.insertAdjacentHTML('beforeend', newProductsHTML);
+                loadAllBtn.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
