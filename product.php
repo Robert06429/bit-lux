@@ -1,3 +1,32 @@
+<?php
+require_once 'connection.php';
+
+session_start();
+
+if (!isset($_SESSION["id"])) {
+    header('Location: index.php');
+    exit;
+}
+$id = $_SESSION["id"];
+
+if (isset($_POST["product_id"])) {
+    $product_id = $_POST['product_id'] ?? null;
+
+    $stmt = $pdo->prepare('INSERT INTO winkelmand (productid) 
+    VALUES (:product_id)');
+    
+
+    $stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
+
+    $stmt->execute();
+}
+
+$stmt = $pdo->prepare("SELECT * FROM product WHERE id = :id");
+$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt->execute();
+$product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -353,6 +382,8 @@
             <!-- Cart Items Container -->
             <div id="cartItems">
                 <!-- Empty State -->
+                
+
                 <div class="cart-empty" id="cartEmpty">
                     <p class="text-lg">Your shopping bag is empty</p>
                     <p class="text-sm text-gray-500 mt-2">Add items to get started</p>
@@ -441,7 +472,7 @@
         <div class="product-images-column">
             <!-- Main Product Image -->
             <div class="product-image-wrapper">
-                <img src="./images/product1.jpg" 
+                <img src="<?= $product['foto1']; ?>" 
                      alt="Monogram Row Bracelet" 
                      class="product-image">
                 
@@ -453,22 +484,17 @@
 
             <!-- Additional Images -->
             <div class="product-image-wrapper">
-                <img src="./images/product2.jpg" 
+                <img src="<?= $product['foto2']; ?>" 
                      alt="Monogram Row Bracelet" 
                      class="product-image">
             </div>
 
             <div class="product-image-wrapper">
-                <img src="./images/product3.jpg" 
+                <img src="<?= $product['foto3']; ?>" 
                      alt="Monogram Row Bracelet" 
                      class="product-image">
             </div>
 
-            <div class="product-image-wrapper">
-                <img src="./images/product4.jpg" 
-                     alt="Monogram Row Bracelet" 
-                     class="product-image">
-            </div>
         </div>
 
         <!-- Product Info Column -->
@@ -476,8 +502,8 @@
             <!-- Product Header (Code + Title + Mobile Wishlist) -->
             <div class="product-info-header">
                 <div class="product-info-left">
-                    <div class="product-code">M1407A</div>
-                    <h1 class="product-title">Monogram Row Bracelet</h1>
+                    <div class="product-code"><?= $product['id']; ?></div>
+                    <h1 class="product-title"><?= $product['naam']; ?></h1>
                 </div>
                 
                                 <button class="wishlist-btn-product">
@@ -495,10 +521,12 @@
             </div>
 
             <!-- Price -->
-            <p class="product-price">375,00€</p>
+            <p class="product-price"><?= $product['prijs']; ?>€</p>
 
             <div class="product-actions">
-                <button class="add-to-bag-btn">Add to shopping bag</button>
+                <form action="product.php" method="post">
+                    <button class="add-to-bag-btn" name="product_id" value="<?= $product['id'] ?>">Add to shopping bag</button>
+                </form>
                 <div class="contact-advisor">Contact an Advisor</div>
             </div>
 
@@ -506,7 +534,7 @@
 
             <!-- Product Description -->
             <div class="product-description">
-                Cast from polished, silver-color finish metal, the Monogram Row Bracelet features LV emblems and Monogram motifs integrated into the adjustable chain. A finely engraved clasp completes this refined design.
+                <?= $product['beschrijving']; ?>
             </div>
 
             <!-- Product Details Accordion -->
