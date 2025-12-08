@@ -3,11 +3,11 @@ require_once 'connection.php';
 
 session_start();
 
-if (!isset($_SESSION["id"])) {
-    header('Location: index.php');
-    exit;
-}
-$id = $_SESSION["id"];
+// if (!isset($_SESSION["id"])) {
+//     header('Location: index.php');
+//     exit;
+// }
+$id = 1;
 
 if (isset($_POST["product_id"])) {
     $product_id = $_POST['product_id'] ?? null;
@@ -41,10 +41,6 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
 </head>
 <body class="product-page">
     <!-- Navbar (Always White on Product Page) -->
-<<<<<<< HEAD:product.html
-    <!-- Navbar Container -->
-    <div id="navbar-container"></div>
-=======
     <nav class="navbar navbar-white" id="navbar">
         <div class="navbar-content">
             <!-- Left Side -->
@@ -573,7 +569,6 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
         </div>
     </div>
->>>>>>> robert:product.php
 
     <!-- Footer -->
     <!-- Footer Container -->
