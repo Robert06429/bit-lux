@@ -31,8 +31,17 @@ CREATE TABLE product (
 
 CREATE TABLE winkelmand (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    productid INT NOT NULL
+    users VARCHAR
+    productid INT NOT NULL,
+    aantal INT NOT NULL
 );
+
+INSERT INTO winkelmand (productid, aantal)
+VALUES
+(3, 6),
+(4, 6),
+(1, 6),
+(37, 6);
 
 INSERT INTO product (naam, beschrijving, foto1, foto2, foto3, prijs, materiaal, geslacht, diamant, categorie)
 VALUES
@@ -57,7 +66,6 @@ VALUES
 ('Men''s 14K Gold Signet Ring with Diamond', 'This is a 14K gold signet ring with a small diamond accent.', 'foto/mannen-ring/14-Karaat-gouden-zegelring-met-diamant-0,005ct1.avif', 'foto/mannen-ring/14-Karaat-gouden-zegelring-met-diamant-0,005ct2.avif', 'foto/mannen-ring/14-Karaat-gouden-zegelring-met-diamant-0,005ct3.avif', 299.99, 'gold', 1, 1, 'mannen-ring'),
 ('Men''s Decorative Blue Ring', 'This is a decorative men''s ring with blue detailing. No diamonds present.', 'foto/mannen-ring/blauw1.avif', NULL, NULL, 189.99, 'unknown', 1, 0, 'mannen-ring'),
 ('Men''s Lion Signet Ring', 'This is a men''s signet ring featuring a lion motif. No diamonds present.', 'foto/mannen-ring/leeuw1.avif', 'foto/mannen-ring/leeuw2.avif', 'foto/mannen-ring/leeuw3.avif', 189.99, 'unknown', 1, 0, 'mannen-ring'),
-('Men''s White Ring', 'This is a men''s ring with white accents. No diamonds present.', 'foto/mannen-ring/white1.avif', 'foto/mannen-ring/white2.avif', NULL, 159.99, 'unknown', 1, 0, 'mannen-ring'),
 ('Men''s Yellow Ring', 'This is a men''s ring with yellow accents. No diamonds present.', 'foto/mannen-ring/yellow.avif', 'foto/mannen-ring/yellow2.avif', 'foto/mannen-ring/yellow3.avif', 159.99, 'unknown', 1, 0, 'mannen-ring'),
 
 -- vrouwen-armband

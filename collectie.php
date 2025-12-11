@@ -7,6 +7,7 @@ $stmt->execute();
 $media = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -505,25 +506,28 @@ $media = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <section class="collectie-products-grid">
         <!-- ROW 1: 4 Products -->
         <?php foreach ($media as $medi) { ?>
-        <div class="collectie-product-card">
-            <div class="collectie-product-image">
-                <img src="<?= $medi["foto1"]; ?>"
-                    alt="GG wool jacquard scarf">
-                <button class="collectie-wishlist-btn">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path
-                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                    </svg>
-                </button>
+            <div class="collectie-product-card">
+                <a href="product.php?id=<?= $medi['id']; ?>">
+                    <div class="collectie-product-image">
+                        <img src="<?= $medi["foto1"]; ?>" alt="GG wool jacquard scarf">
+                        <button class="collectie-wishlist-btn">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="collectie-product-info">
+                        <h3 class="collectie-product-name"><?= $medi["naam"]; ?></h3>
+                        <p class="collectie-product-price">$<?= $medi["prijs"]; ?></p>
+                    </div>
+                </a>
             </div>
-            <div class="collectie-product-info">
-                <h3 class="collectie-product-name"><?= $medi["naam"]; ?></h3>
-                <p class="collectie-product-price">$<?= $medi["prijs"]; ?></p>
-            </div>
-        </div>
+
         <?php } ?>
 
-        
+
     </section>
 
     <!-- Load All Section -->
@@ -543,7 +547,7 @@ $media = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
 
-    
+
 </body>
 
 </html>
