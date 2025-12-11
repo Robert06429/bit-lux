@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     console.log('=== Component Loader Started ===');
     
     // Laad navbar en footer
-    await loadComponent('navbar-container', './components/navbar.html');
+    await loadComponent('navbar-container', './components/navbar.php');
     await loadComponent('footer-container', './components/footer.html');
     
     console.log('=== Components Loaded, Loading Script ===');
