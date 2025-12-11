@@ -14,9 +14,9 @@
 Bit Lux is een project ontwikkeld als onderdeel van de Bit Academy Scrum 2-module. Wij ontwikkelen Bit-lux, een luxe en overzichtelijke webshop voor sieraden. De focus ligt op gebruiksgemak, kwalitatief design en een premium uitstraling. Gebruikers moeten eenvoudig producten kunnen bekijken, filteren en bestellen. Dit project is gemaakt door David, Robert en Tim.
 
 ## Functies
-- Functie 1: [Beschrijving]
-- Functie 2: [Beschrijving]
-- Functie 3: [Beschrijving]
+- Functie 1: Producten bekijken en filteren op categorie, prijs en populariteit.
+- Functie 2: Gedetailleerde productpagina's met afbeeldingen en beschrijvingen.
+- Functie 3: Winkelwagenfunctionaliteit met realtime updates.
 
 ## Installatie
 1. Clone de repository:
