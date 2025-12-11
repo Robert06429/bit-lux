@@ -1,3 +1,9 @@
+<?php
+
+require_once 'C:/school/bit-lux/connection.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>

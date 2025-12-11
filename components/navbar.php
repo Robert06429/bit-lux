@@ -1,10 +1,10 @@
 <?php
 
-require_once 'connection.php';
+require_once '../connection.php';
 
 session_start();
 
-$id = $_SESSION["id"];
+$id = $_SESSION['winkelmand']['aantal'];
 
 
 $stmt = $pdo->prepare("SELECT * FROM product WHERE id = :id");
@@ -101,7 +101,7 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
         <!-- Secondary Navigation Links (inside navbar) -->
         <div class="nav-links-secondary" id="navLinksSecondary">
-            <a href="/collectie.html" class="nav-link-item">Holiday Gifts for Her</a>
+            <a href="/collectie.php" class="nav-link-item">Holiday Gifts for Her</a>
             <a href="#" class="nav-link-item">Holiday Gifts for Him</a>
         </div>
     </nav>
@@ -176,7 +176,7 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
             <!-- Menu Items -->
             <div class="space-y-2">
-                <a href="/collectie.html" class="menu-item">Holiday Gifts for Her</a>
+                <a href="/collectie.php" class="menu-item">Holiday Gifts for Her</a>
                 <div class="menu-item">Holiday Gifts for Him</div>
                 <div class="menu-item">Wedding Rings</div>
                 <div class="menu-item">Chains</div>
@@ -383,13 +383,13 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
             <!-- Cart Items Container -->
             <div id="cartItems">
                 <!-- Empty State -->
-                <div class="cart-empty" id="cartEmpty">
+                <!-- <div class="cart-empty" id="cartEmpty">
                     <p class="text-lg">Your shopping bag is empty</p>
                     <p class="text-sm text-gray-500 mt-2">Add items to get started</p>
-                </div>
+                </div> -->
 
                 <!-- Example Cart Item (hidden by default) -->
-                <div class="cart-item" id="cartItemTemplate" style="display: none;">
+                <div class="cart-item"  style="display: none;">
                     <img src="https://via.placeholder.com/160" alt="Product" class="cart-item-image">
                     <div class="cart-item-details">
                         <div class="cart-item-header">
@@ -406,13 +406,13 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
                         <div class="cart-item-price">$3,700.00</div>
                         <div class="cart-item-actions">
                             <div class="cart-quantity">
-                                <button onclick="decreaseQuantity()">
+                               <!-- <button onclick="decreaseQuantity()"> -->
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
                                         <line x1="2" y1="6" x2="10" y2="6"/>
                                     </svg>
                                 </button>
                                 <span>1</span>
-                                <button onclick="increaseQuantity()">
+                                <!-- <button onclick="increaseQuantity()"> -->
                                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
                                         <line x1="6" y1="2" x2="6" y2="10"/>
                                         <line x1="2" y1="6" x2="10" y2="6"/>
