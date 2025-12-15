@@ -1,9 +1,8 @@
-<?php
+<?php 
 
-require_once 'C:/school/bit-lux/connection.php';
+session_start();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -17,7 +16,9 @@ require_once 'C:/school/bit-lux/connection.php';
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div id="navbar-container"></div>
+    
+    <?php include('components/navbar.php') ?>
+
 
     <section class="relative w-full h-[80vh] md:h-screen overflow-hidden">
         <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
@@ -209,7 +210,7 @@ require_once 'C:/school/bit-lux/connection.php';
         </div>
     </section>
 
-    <div id="footer-container"></div>
-    <script src="./javascript/component-loader.js"></script>
+    <?php include "components/footer.html" ?>
 </body>
 </html>
+
