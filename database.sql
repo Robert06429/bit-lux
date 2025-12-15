@@ -5,15 +5,16 @@ USE bitlux;
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
+    naam VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL,
     admin INT NOT NULL
 );
 
-INSERT INTO users (username, password, admin)
+INSERT INTO users (username, naam, password, admin)
 VALUES 
-('Robert', 'hoi', 1),
-('andy', 'moi', 0),
-('pater', 'stok', 1);
+('robert.hoi@gmail.com', 'Robert', 'hoi', 1),
+('andy.hoi@gmail.com', 'Andy', 'moi', 0),
+('pater.hoi@gmail.com', 'Pater', 'stok', 1);
 
 CREATE TABLE product (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -29,28 +30,15 @@ CREATE TABLE product (
     categorie VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE winkelmand (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    users VARCHAR
-    productid INT NOT NULL,
-    aantal INT NOT NULL
-);
-
-INSERT INTO winkelmand (productid, aantal)
-VALUES
-(3, 6),
-(4, 6),
-(1, 6),
-(37, 6);
 
 INSERT INTO product (naam, beschrijving, foto1, foto2, foto3, prijs, materiaal, geslacht, diamant, categorie)
 VALUES
-('mannen armband 1', 'Product uit foto/mannen-armband', 'foto/mannen-armband/11.webp', 'foto/mannen-armband/12.webp', 'foto/mannen-armband/13.webp', 199.99, 'onbekend', 1, 1, 'mannen-armband'),
-('mannen armband 2', 'Product uit foto/mannen-armband', 'foto/mannen-armband/21.webp', 'foto/mannen-armband/22.webp', 'foto/mannen-armband/23.webp', 199.99, 'onbekend', 1, 0, 'mannen-armband'),
-('mannen armband 3', 'Product uit foto/mannen-armband', 'foto/mannen-armband/31.webp', 'foto/mannen-armband/32.webp', 'foto/mannen-armband/33.webp', 199.99, 'onbekend', 1, 0, 'mannen-armband'),
-('mannen armband 4', 'Product uit foto/mannen-armband', 'foto/mannen-armband/41.webp', 'foto/mannen-armband/42.webp', 'foto/mannen-armband/43.webp', 199.99, 'onbekend', 1, 1, 'mannen-armband'),
-('mannen armband 5', 'Product uit foto/mannen-armband', 'foto/mannen-armband/9K-armband-met-gourmet-schakel-3,9mm1.avif', 'foto/mannen-armband/9K-armband-met-gourmet-schakel-3,9mm2.avif', 'foto/mannen-armband/9K-armband-met-gourmet-schakel-3,9mm3.avif', 199.99, 'onbekend', 1, 0, 'mannen-armband'),
-('mannen armband 6', 'Product uit foto/mannen-armband', 'foto/mannen-armband/Zilveren-goldplated-herenschakelarmband1.avif', 'foto/mannen-armband/Zilveren-goldplated-herenschakelarmband2.avif', 'foto/mannen-armband/Zilveren-goldplated-herenschakelarmband3.avif', 199.99, 'onbekend', 1, 0, 'mannen-armband'),
+('Men Bracelet 1', 'Product from foto/mannen-armband', 'foto/mannen-armband/11.webp', 'foto/mannen-armband/12.webp', 'foto/mannen-armband/13.webp', 199.99, 'unknown', 1, 1, 'bracelet'),
+('Men Bracelet 2', 'Product from foto/mannen-armband', 'foto/mannen-armband/21.webp', 'foto/mannen-armband/22.webp', 'foto/mannen-armband/23.webp', 199.99, 'unknown', 1, 0, 'bracelet'),
+('Men Bracelet 3', 'Product from foto/mannen-armband', 'foto/mannen-armband/31.webp', 'foto/mannen-armband/32.webp', 'foto/mannen-armband/33.webp', 199.99, 'unknown', 1, 0, 'bracelet'),
+('Men Bracelet 4', 'Product from foto/mannen-armband', 'foto/mannen-armband/41.webp', 'foto/mannen-armband/42.webp', 'foto/mannen-armband/43.webp', 199.99, 'unknown', 1, 1, 'bracelet'),
+('Men Bracelet 5', 'Product from foto/mannen-armband', 'foto/mannen-armband/9K-armband-met-gourmet-schakel-3,9mm1.avif', 'foto/mannen-armband/9K-armband-met-gourmet-schakel-3,9mm2.avif', 'foto/mannen-armband/9K-armband-met-gourmet-schakel-3,9mm3.avif', 199.99, 'unknown', 1, 0, 'bracelet'),
+('Men Bracelet 6', 'Product from foto/mannen-armband', 'foto/mannen-armband/Zilveren-goldplated-herenschakelarmband1.avif', 'foto/mannen-armband/Zilveren-goldplated-herenschakelarmband2.avif', 'foto/mannen-armband/Zilveren-goldplated-herenschakelarmband3.avif', 199.99, 'unknown', 1, 0, 'bracelet'),
 
 -- mannen-oorbellen
 ('Men''s Gold Stud Earrings', 'This is a set of men''s gold stud earrings. No diamonds present.', 'foto/mannen-oorbellen/gouden-herenoorknoppen-met-1.webp', 'foto/mannen-oorbellen/gouden-herenoorknoppen-met-2.avif', 'foto/mannen-oorbellen/gouden-herenoorknoppen-met-3.avif', 79.99, 'gold', 1, 0, 'mannen-oorbellen'),
@@ -76,38 +64,38 @@ VALUES
 ('Women''s 14K Gold Bracelet with Zirconia', 'This is a 14K gold bracelet with heart and zirconia accents. Contains zirconia (diamond-like stone).', 'foto/vrouwen-armband/14-Karaat-gouden-armband-hart-en-zirkonia2.avif', 'foto/vrouwen-armband/14-Karaat-gouden-armband-hart-en-zirkonia3.avif', NULL, 219.99, 'gold', 0, 1, 'vrouwen-armband'),
 
 -- mannen-keting
-('mannen keting 1', 'Product uit foto/mannen-keting', 'foto/mannen-keting/11.webp', 'foto/mannen-keting/12.webp', 'foto/mannen-keting/13.webp', 149.99, 'onbekend', 1, 0, 'mannen-keting'),
-('mannen keting 2', 'Product uit foto/mannen-keting', 'foto/mannen-keting/21.webp', 'foto/mannen-keting/22.webp', 'foto/mannen-keting/23.webp', 149.99, 'onbekend', 1, 0, 'mannen-keting'),
-('mannen keting 3', 'Product uit foto/mannen-keting', 'foto/mannen-keting/31.webp', 'foto/mannen-keting/32.webp', 'foto/mannen-keting/33.webp', 149.99, 'onbekend', 1, 0, 'mannen-keting'),
-('mannen keting 4', 'Product uit foto/mannen-keting', 'foto/mannen-keting/41.webp', 'foto/mannen-keting/42.webp', 'foto/mannen-keting/43.webp', 149.99, 'onbekend', 1, 0, 'mannen-keting'),
-('mannen keting 5', 'Product uit foto/mannen-keting', 'foto/mannen-keting/51.webp', 'foto/mannen-keting/52.webp', 'foto/mannen-keting/53.webp', 149.99, 'onbekend', 1, 0, 'mannen-keting'),
-('mannen keting 6', 'Product uit foto/mannen-keting', 'foto/mannen-keting/61.webp', 'foto/mannen-keting/62.webp', 'foto/mannen-keting/63.webp', 149.99, 'onbekend', 1, 0, 'mannen-keting'),
+('Men Necklace 1', 'Product from foto/mannen-keting', 'foto/mannen-keting/11.webp', 'foto/mannen-keting/12.webp', 'foto/mannen-keting/13.webp', 149.99, 'unknown', 1, 0, 'necklace'),
+('Men Necklace 2', 'Product from foto/mannen-keting', 'foto/mannen-keting/21.webp', 'foto/mannen-keting/22.webp', 'foto/mannen-keting/23.webp', 149.99, 'unknown', 1, 0, 'necklace'),
+('Men Necklace 3', 'Product from foto/mannen-keting', 'foto/mannen-keting/31.webp', 'foto/mannen-keting/32.webp', 'foto/mannen-keting/33.webp', 149.99, 'unknown', 1, 0, 'necklace'),
+('Men Necklace 4', 'Product from foto/mannen-keting', 'foto/mannen-keting/41.webp', 'foto/mannen-keting/42.webp', 'foto/mannen-keting/43.webp', 149.99, 'unknown', 1, 0, 'necklace'),
+('Men Necklace 5', 'Product from foto/mannen-keting', 'foto/mannen-keting/51.webp', 'foto/mannen-keting/52.webp', 'foto/mannen-keting/53.webp', 149.99, 'unknown', 1, 0, 'necklace'),
+('Men Necklace 6', 'Product from foto/mannen-keting', 'foto/mannen-keting/61.webp', 'foto/mannen-keting/62.webp', 'foto/mannen-keting/63.webp', 149.99, 'unknown', 1, 0, 'necklace'),
 
 -- mannen-oorbellen
-('mannen oorbel 1', 'Product uit foto/mannen-oorbellen', 'foto/mannen-oorbellen/gouden-herenoorknoppen-met-1.webp', 'foto/mannen-oorbellen/gouden-herenoorknoppen-met-2.avif', 'foto/mannen-oorbellen/gouden-herenoorknoppen-met-3.avif', 79.99, 'onbekend', 1, 0, 'mannen-oorbellen'),
-('mannen oorbel 2', 'Product uit foto/mannen-oorbellen', 'foto/mannen-oorbellen/gouden-herenoorringen-met-kruis-1.avif', 'foto/mannen-oorbellen/gouden-herenoorringen-met-kruis-3.avif', 'foto/mannen-oorbellen/Stalen-goldplated-herenoorringen-met-hanger-kruis (1).avif', 79.99, 'onbekend', 1, 0, 'mannen-oorbellen'),
-('mannen oorbel 3', 'Product uit foto/mannen-oorbellen', 'foto/mannen-oorbellen/stalen-heren-oorringen-1.avif', 'foto/mannen-oorbellen/stalen-heren-oorringen-2.avif', 'foto/mannen-oorbellen/stalen-heren-oorringen-3.avif', 74.99, 'platinum', 1, 0, 'mannen-oorbellen'),
-('mannen oorbel 4', 'Product uit foto/mannen-oorbellen', 'foto/mannen-oorbellen/Zilveren-met-goldplated-oorknoppen-1.avif', 'foto/mannen-oorbellen/Zilveren-met-goldplated-oorknoppen-2.avif', 'foto/mannen-oorbellen/Zilveren-met-goldplated-oorknoppen-3.avif', 69.99, 'zilver', 1, 0, 'mannen-oorbellen'),
-('mannen oorbel 5', 'Product uit foto/mannen-oorbellen', 'foto/mannen-oorbellen/Zilveren-oorknoppen-rond-1.avif', 'foto/mannen-oorbellen/Zilveren-oorknoppen-rond-2.avif', 'foto/mannen-oorbellen/Zilveren-oorknoppen-rond-3.avif', 69.99, 'zilver', 1, 0, 'mannen-oorbellen'),
-('mannen oorbel 6', 'Product uit foto/mannen-oorbellen', 'foto/mannen-oorbellen/Zilveren-voor-heren-oorknoppen-vierkant-1.avif', 'foto/mannen-oorbellen/Zilveren-voor-heren-oorknoppen-vierkant-2.avif', 'foto/mannen-oorbellen/Zilveren-voor-heren-oorknoppen-vierkant-3.avif', 69.99, 'zilver', 1, 0, 'mannen-oorbellen'),
+('Men Earring 1', 'Product from foto/mannen-oorbellen', 'foto/mannen-oorbellen/gouden-herenoorknoppen-met-1.webp', 'foto/mannen-oorbellen/gouden-herenoorknoppen-met-2.avif', 'foto/mannen-oorbellen/gouden-herenoorknoppen-met-3.avif', 79.99, 'unknown', 1, 0, 'earring'),
+('Men Earring 2', 'Product from foto/mannen-oorbellen', 'foto/mannen-oorbellen/gouden-herenoorringen-met-kruis-1.avif', 'foto/mannen-oorbellen/gouden-herenoorringen-met-kruis-3.avif', 'foto/mannen-oorbellen/Stalen-goldplated-herenoorringen-met-hanger-kruis (1).avif', 79.99, 'unknown', 1, 0, 'earring'),
+('Men Earring 3', 'Product from foto/mannen-oorbellen', 'foto/mannen-oorbellen/stalen-heren-oorringen-1.avif', 'foto/mannen-oorbellen/stalen-heren-oorringen-2.avif', 'foto/mannen-oorbellen/stalen-heren-oorringen-3.avif', 74.99, 'platinum', 1, 0, 'earring'),
+('Men Earring 4', 'Product from foto/mannen-oorbellen', 'foto/mannen-oorbellen/Zilveren-met-goldplated-oorknoppen-1.avif', 'foto/mannen-oorbellen/Zilveren-met-goldplated-oorknoppen-2.avif', 'foto/mannen-oorbellen/Zilveren-met-goldplated-oorknoppen-3.avif', 69.99, 'silver', 1, 0, 'earring'),
+('Men Earring 5', 'Product from foto/mannen-oorbellen', 'foto/mannen-oorbellen/Zilveren-oorknoppen-rond-1.avif', 'foto/mannen-oorbellen/Zilveren-oorknoppen-rond-2.avif', 'foto/mannen-oorbellen/Zilveren-oorknoppen-rond-3.avif', 69.99, 'silver', 1, 0, 'earring'),
+('Men Earring 6', 'Product from foto/mannen-oorbellen', 'foto/mannen-oorbellen/Zilveren-voor-heren-oorknoppen-vierkant-1.avif', 'foto/mannen-oorbellen/Zilveren-voor-heren-oorknoppen-vierkant-2.avif', 'foto/mannen-oorbellen/Zilveren-voor-heren-oorknoppen-vierkant-3.avif', 69.99, 'silver', 1, 0, 'earring'),
 
 -- mannen-ring
-('mannen ring 1', 'Product uit foto/mannen-ring', 'foto/mannen-ring/14-karaat-geelgouden-zegelring-met-zirkonia1.avif', 'foto/mannen-ring/14-karaat-geelgouden-zegelring-met-zirkonia2.avif', 'foto/mannen-ring/14-Karaat-gouden-zegelring-met-diamant-0,005ct1.avif', 249.99, 'onbekend', 1, 0, 'mannen-ring'),
-('mannen ring 2', 'Product uit foto/mannen-ring', 'foto/mannen-ring/14-Karaat-gouden-zegelring-met-diamant-0,005ct2.avif', 'foto/mannen-ring/14-Karaat-gouden-zegelring-met-diamant-0,005ct3.avif', 'foto/mannen-ring/blauw1.avif', 299.99, 'onbekend', 1, 1, 'mannen-ring'),
-('mannen ring 3', 'Product uit foto/mannen-ring', 'foto/mannen-ring/blauw2.webp', 'foto/mannen-ring/blauw3.webp', 'foto/mannen-ring/leeuw1.avif', 189.99, 'onbekend', 1, 0, 'mannen-ring'),
-('mannen ring 4', 'Product uit foto/mannen-ring', 'foto/mannen-ring/leeuw2.avif', 'foto/mannen-ring/leeuw3.avif', 'foto/mannen-ring/white1.avif', 189.99, 'onbekend', 1, 0, 'mannen-ring'),
-('mannen ring 5', 'Product uit foto/mannen-ring', 'foto/mannen-ring/white2.avif', 'foto/mannen-ring/white3.webp', 'foto/mannen-ring/yellow.avif', 159.99, 'onbekend', 1, 0, 'mannen-ring'),
-('mannen ring 6', 'Product uit foto/mannen-ring', 'foto/mannen-ring/yellow2.avif', 'foto/mannen-ring/yellow3.avif', 'foto/mannen-ring/14-karaat-geelgouden-zegelring-met-zirkonia1.avif', 159.99, 'onbekend', 1, 0, 'mannen-ring'),
+('Men Ring 1', 'Product from foto/mannen-ring', 'foto/mannen-ring/14-karaat-geelgouden-zegelring-met-zirkonia1.avif', 'foto/mannen-ring/14-karaat-geelgouden-zegelring-met-zirkonia2.avif', 'foto/mannen-ring/14-Karaat-gouden-zegelring-met-diamant-0,005ct1.avif', 249.99, 'unknown', 1, 0, 'ring'),
+('Men Ring 2', 'Product from foto/mannen-ring', 'foto/mannen-ring/14-Karaat-gouden-zegelring-met-diamant-0,005ct2.avif', 'foto/mannen-ring/14-Karaat-gouden-zegelring-met-diamant-0,005ct3.avif', 'foto/mannen-ring/blauw1.avif', 299.99, 'unknown', 1, 1, 'ring'),
+('Men Ring 3', 'Product from foto/mannen-ring', 'foto/mannen-ring/blauw2.webp', 'foto/mannen-ring/blauw3.webp', 'foto/mannen-ring/leeuw1.avif', 189.99, 'unknown', 1, 0, 'ring'),
+('Men Ring 4', 'Product from foto/mannen-ring', 'foto/mannen-ring/leeuw2.avif', 'foto/mannen-ring/leeuw3.avif', 'foto/mannen-ring/white1.avif', 189.99, 'unknown', 1, 0, 'ring'),
+('Men Ring 5', 'Product from foto/mannen-ring', 'foto/mannen-ring/white2.avif', 'foto/mannen-ring/white3.webp', 'foto/mannen-ring/yellow.avif', 159.99, 'unknown', 1, 0, 'ring'),
+('Men Ring 6', 'Product from foto/mannen-ring', 'foto/mannen-ring/yellow2.avif', 'foto/mannen-ring/yellow3.avif', 'foto/mannen-ring/14-karaat-geelgouden-zegelring-met-zirkonia1.avif', 159.99, 'unknown', 1, 0, 'ring'),
 
 -- vrouwen-armband
-('vrouwen armband 1', 'Product uit foto/vrouwen-armband', 'foto/vrouwen-armband/14-Karaat-bicolor-gouden-armband1.avif', 'foto/vrouwen-armband/14-Karaat-bicolor-gouden-armband2.avif', 'foto/vrouwen-armband/14-Karaat-bicolor-gouden-armband3.avif', 199.99, 'onbekend', 0, 0, 'vrouwen-armband'),
-('vrouwen armband 2', 'Product uit foto/vrouwen-armband', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-hart1.avif', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-hart2.avif', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-hart3.avif', 179.99, 'onbekend', 0, 0, 'vrouwen-armband'),
-('vrouwen armband 3', 'Product uit foto/vrouwen-armband', 'foto/vrouwen-armband/14-Karaat-geelgouden-armband-koord1.webp', 'foto/vrouwen-armband/14-Karaat-geelgouden-armband-koord2.avif', 'foto/vrouwen-armband/14-Karaat-geelgouden-armband-koord3.avif', 149.99, 'onbekend', 0, 0, 'vrouwen-armband'),
-('vrouwen armband 4', 'Product uit foto/vrouwen-armband', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-opengewerkt-hart1.png', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-opengewerkt-hart2.avif', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-opengewerkt-hart3.avif', 189.99, 'onbekend', 0, 0, 'vrouwen-armband'),
-('vrouwen armband 5', 'Product uit foto/vrouwen-armband', 'foto/vrouwen-armband/14-Karaat-gouden-armband-hart-en-zirkonia1.webp', 'foto/vrouwen-armband/14-Karaat-gouden-armband-hart-en-zirkonia2.avif', 'foto/vrouwen-armband/14-Karaat-gouden-armband-hart-en-zirkonia3.avif', 219.99, 'onbekend', 0, 1, 'vrouwen-armband'),
-('vrouwen armband 6', 'Product uit foto/vrouwen-armband', 'foto/vrouwen-armband/9-Karaat-armband-diamond-cut1.avif', 'foto/vrouwen-armband/9-Karaat-armband-diamond-cut2.avif', 'foto/vrouwen-armband/9-Karaat-armband-diamond-cut3.avif', 159.99, 'onbekend', 0, 0, 'vrouwen-armband'),
-('vrouwen armband 7', 'Product uit foto/vrouwen-armband', 'foto/vrouwen-armband/Zilveren-armband-blauwe-zirkonia1.avif', 'foto/vrouwen-armband/Zilveren-armband-blauwe-zirkonia2.avif', 'foto/vrouwen-armband/Zilveren-armband-blauwe-zirkonia3.avif', 139.99, 'zilver', 0, 0, 'vrouwen-armband'),
-('vrouwen armband 8', 'Product uit foto/vrouwen-armband', 'foto/vrouwen-armband/Zilveren-goldplated-armband-voor-dames1.avif', 'foto/vrouwen-armband/Zilveren-goldplated-armband-voor-dames2.avif', 'foto/vrouwen-armband/Zilveren-goldplated-armband-voor-dames3.avif', 139.99, 'zilver', 0, 0, 'vrouwen-armband'),
+('Women Bracelet 1', 'Product from foto/vrouwen-armband', 'foto/vrouwen-armband/14-Karaat-bicolor-gouden-armband1.avif', 'foto/vrouwen-armband/14-Karaat-bicolor-gouden-armband2.avif', 'foto/vrouwen-armband/14-Karaat-bicolor-gouden-armband3.avif', 199.99, 'unknown', 0, 0, 'bracelet'),
+('Women Bracelet 2', 'Product from foto/vrouwen-armband', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-hart1.avif', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-hart2.avif', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-hart3.avif', 179.99, 'unknown', 0, 0, 'bracelet'),
+('Women Bracelet 3', 'Product from foto/vrouwen-armband', 'foto/vrouwen-armband/14-Karaat-geelgouden-armband-koord1.webp', 'foto/vrouwen-armband/14-Karaat-geelgouden-armband-koord2.avif', 'foto/vrouwen-armband/14-Karaat-geelgouden-armband-koord3.avif', 149.99, 'unknown', 0, 0, 'bracelet'),
+('Women Bracelet 4', 'Product from foto/vrouwen-armband', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-opengewerkt-hart1.png', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-opengewerkt-hart2.avif', 'foto/vrouwen-armband/14-karaat-geelgouden-armband-opengewerkt-hart3.avif', 189.99, 'unknown', 0, 0, 'bracelet'),
+('Women Bracelet 5', 'Product from foto/vrouwen-armband', 'foto/vrouwen-armband/14-Karaat-gouden-armband-hart-en-zirkonia1.webp', 'foto/vrouwen-armband/14-Karaat-gouden-armband-hart-en-zirkonia2.avif', 'foto/vrouwen-armband/14-Karaat-gouden-armband-hart-en-zirkonia3.avif', 219.99, 'unknown', 0, 1, 'bracelet'),
+('Women Bracelet 6', 'Product from foto/vrouwen-armband', 'foto/vrouwen-armband/9-Karaat-armband-diamond-cut1.avif', 'foto/vrouwen-armband/9-Karaat-armband-diamond-cut2.avif', 'foto/vrouwen-armband/9-Karaat-armband-diamond-cut3.avif', 159.99, 'unknown', 0, 0, 'bracelet'),
+('Women Bracelet 7', 'Product from foto/vrouwen-armband', 'foto/vrouwen-armband/Zilveren-armband-blauwe-zirkonia1.avif', 'foto/vrouwen-armband/Zilveren-armband-blauwe-zirkonia2.avif', 'foto/vrouwen-armband/Zilveren-armband-blauwe-zirkonia3.avif', 139.99, 'silver', 0, 0, 'bracelet'),
+('Women Bracelet 8', 'Product from foto/vrouwen-armband', 'foto/vrouwen-armband/Zilveren-goldplated-armband-voor-dames1.avif', 'foto/vrouwen-armband/Zilveren-goldplated-armband-voor-dames2.avif', 'foto/vrouwen-armband/Zilveren-goldplated-armband-voor-dames3.avif', 139.99, 'silver', 0, 0, 'bracelet'),
 
 -- vrouwen-ketting
 ('vrouwen ketting 1', 'Product uit foto/vrouwen-ketting', 'foto/vrouwen-ketting/9-karaat-bicolor-ketting-met-hanger-open-hart-voor-dames1.webp', 'foto/vrouwen-ketting/9-karaat-bicolor-ketting-met-hanger-open-hart-voor-dames2.avif', 'foto/vrouwen-ketting/9-karaat-bicolor-ketting-met-hanger-open-hart-voor-dames3.avif', 149.99, 'onbekend', 0, 0, 'vrouwen-ketting'),
