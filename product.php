@@ -29,6 +29,7 @@ $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
 $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
 ?>
 <!DOCTYPE html>
 <html lang="nl">
@@ -47,7 +48,8 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <div id="navbar-container"></div>
+
+    <?php include('components/navbar.php') ?>
 
 
     <!-- Product Page Content -->
@@ -156,11 +158,8 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <!-- Footer -->
-    <!-- Footer Container -->
-    <div id="footer-container"></div>
+    <?php include "components/footer.html" ?>
 
-    <script src="./javascript/component-loader.js"></script>
 </body>
 
 </html>
