@@ -1,6 +1,6 @@
 
 <?php
-require_once 'connection.php';
+require_once 'components/connection.php';
 
 // Categories en materials
 $categories = ['ring' => 'Rings', 'ketting' => 'Necklaces', 'armband' => 'Bracelets', 'oorbellen' => 'Earrings'];
@@ -171,6 +171,8 @@ $hasFilters = !empty($_GET['category']) || !empty($_GET['material']) || !empty($
 </head>
 
 <body class="bg-black">
+
+    <?php include('components/navbar.php') ?>
 
     <!-- Hero Section -->
     <section class="relative w-full h-[40vh] md:h-[60vh] overflow-hidden">
