@@ -353,3 +353,4 @@ if (productImagesColumn && carouselCounter) {
         carouselCounter.textContent = `${currentIndex} / ${totalImages}`;
     });
 }
+

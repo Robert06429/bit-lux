@@ -210,7 +210,9 @@ session_start();
         </div>
     </section>
 
-    <?php include "components/footer.html" ?>
+    <?php include './components/footer.php'; ?>
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/cart-wishlist.js"></script>
 </body>
 </html>
 

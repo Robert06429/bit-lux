@@ -10,25 +10,10 @@ if (!isset($_GET["id"])) {
 
 $id = $_GET["id"];
 
-if (isset($_POST["product_id"])) {
-
-    if (isset($_SESSION['winkelmand'])) {
-        if (isset($_SESSION['winkelmand']['aantal'][$id])) {
-            $_SESSION['winkelmand']['aantal'][$id] += 1;
-        } else {
-            $_SESSION['winkelmand']['aantal'][$id] = 1;
-        }
-    }
-
-
-}
-
-
 $stmt = $pdo->prepare("SELECT * FROM product WHERE id = :id");
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
 $product = $stmt->fetch(PDO::FETCH_ASSOC);
-
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +22,7 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monogram Row Bracelet - BIT LUX</title>
+    <title><?= htmlspecialchars($product['naam']); ?> - BIT LUX</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -47,35 +32,35 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="product-page">
+    
+    <!-- Include Navbar -->
+    <?php include './components/navbar.php'; ?>
 
-    <?php include('components/navbar.php') ?>
-
-
-    <!-- Product Page Content -->
     <!-- Product Container -->
     <div class="product-container">
         <!-- Product Images Column -->
         <div class="product-images-column">
             <!-- Main Product Image -->
             <div class="product-image-wrapper">
-                <img src="<?= $product['foto1']; ?>" alt="Monogram Row Bracelet" class="product-image">
-
-                <!-- Desktop Wishlist Button (on photo) -->
+                <img src="<?= htmlspecialchars($product['foto1']); ?>" alt="<?= htmlspecialchars($product['naam']); ?>" class="product-image">
 
                 <!-- Mobile Carousel Counter -->
-                <div class="carousel-counter">1 / 4</div>
+                <div class="carousel-counter">1 / 3</div>
             </div>
 
             <!-- Additional Images -->
+            <?php if (!empty($product['foto2'])): ?>
             <div class="product-image-wrapper">
-                <img src="<?= $product['foto2']; ?>" alt="Monogram Row Bracelet" class="product-image">
+                <img src="<?= htmlspecialchars($product['foto2']); ?>" alt="<?= htmlspecialchars($product['naam']); ?>" class="product-image">
             </div>
+            <?php endif; ?>
 
+            <?php if (!empty($product['foto3'])): ?>
             <div class="product-image-wrapper">
-                <img src="<?= $product['foto3']; ?>" alt="Monogram Row Bracelet" class="product-image">
+                <img src="<?= htmlspecialchars($product['foto3']); ?>" alt="<?= htmlspecialchars($product['naam']); ?>" class="product-image">
             </div>
-
+            <?php endif; ?>
         </div>
 
         <!-- Product Info Column -->
@@ -83,20 +68,20 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
             <!-- Product Header (Code + Title + Mobile Wishlist) -->
             <div class="product-info-header">
                 <div class="product-info-left">
-                    <div class="product-code"><?= $product['id']; ?></div>
-                    <h1 class="product-title"><?= $product['naam'];
-                    var_dump(($_SESSION['winkelmand']['aantal'][$id])) ?></h1>
+                    <div class="product-code"><?= htmlspecialchars($product['id']); ?></div>
+                    <h1 class="product-title"><?= htmlspecialchars($product['naam']); ?></h1>
                 </div>
 
-                <button class="wishlist-btn-product">
+                <!-- Desktop Wishlist Button -->
+                <button class="wishlist-btn-product" onclick="addToWishlist(<?= $product['id']; ?>)">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path
                             d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                     </svg>
                 </button>
 
-                <!-- Mobile Wishlist Button (next to title) -->
-                <button class="wishlist-btn-mobile">
+                <!-- Mobile Wishlist Button -->
+                <button class="wishlist-btn-mobile" onclick="addToWishlist(<?= $product['id']; ?>)">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path
                             d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -105,21 +90,22 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
             </div>
 
             <!-- Price -->
-            <p class="product-price"><?= $product['prijs']; ?>€</p>
+            <p class="product-price">€<?= number_format($product['prijs'], 2, ',', '.'); ?></p>
 
             <div class="product-actions">
-                <form action="#" method="post">
-                    <button class="add-to-bag-btn" name="product_id" value="<?= $product['id'] ?>">Add to shopping
-                        bag</button>
-                </form>
-                <div class="contact-advisor">Contact an Advisor</div>
+                <!-- Add to Cart Button -->
+                <button class="add-to-bag-btn" onclick="addToCart(<?= $product['id']; ?>)">
+                    Add to shopping bag
+                </button>
+                
+                <div class="contact-advisor" onclick="openContact()">Contact an Advisor</div>
             </div>
 
             <p class="delivery-info">Order by noon for same day shipment</p>
 
             <!-- Product Description -->
             <div class="product-description">
-                <?= $product['beschrijving']; ?>
+                <?= nl2br(htmlspecialchars($product['beschrijving'])); ?>
             </div>
 
             <!-- Product Details Accordion -->
@@ -158,8 +144,13 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <?php include "components/footer.html" ?>
+    <!-- Include Footer -->
+    <?php include './components/footer.php'; ?>
+
+    <!-- Scripts -->
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/cart-wishlist.js"></script>
+    
 
 </body>
-
 </html>
